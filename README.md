@@ -217,10 +217,9 @@ tools\out\WindowTabs-2025.06.30-zh-CN-installer.msi
 
 ## 已知限制
 
-- 本机没有 Visual Studio，因此改为用 .NET SDK 编译：**主程序与安装包都已完整生成（0 错误）**，
+- 本机使用 .NET SDK 编译：**主程序与安装包都已完整生成（0 错误）**，
   并做了运行时校验（用 .NET Framework 的 `ResourceManager` 在隔离目录里读取构建产物，
   `zh-CN` 能取到「外观 / 行为 / 诊断 / 设置…」等中文，中性资源仍回退英文）。
-  仍建议在有 VS 的机器上再跑一次 Release 生成做交叉验证。
 - `Win32/HotKeyControl2.cs`（一个未被项目引用的备用快捷键控件）内部仍有英文常量，未处理。
 - `Settings/` 目录下的 WinForms 工程不在 `WindowTabs.sln` 中，属于历史遗留代码，未处理。
 - 附属程序集里同一份资源写了两个逻辑名（`Properties.Resources.resources` 与
