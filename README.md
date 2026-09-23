@@ -155,18 +155,16 @@ WindowTabs\WtProgram\bin\Release\WindowTabs.exe
 
 生成后 `bin\Release\zh-CN\WindowTabs.resources.dll` 就是简体中文附属程序集，缺了它界面会回退成英文。
 
-### 方式二：只有 .NET SDK，没有 Visual Studio（本机已实测通过）
+### 方式二：只有 .NET SDK，没有 Visual Studio（本分支提供，已实测通过）
 
-在仓库外层执行一条命令即可：
+在仓库根目录执行一条命令即可：
 
 ```cmd
-python build-local\build.py
+python tools\build.py
 ```
 
-（脚本在 `github项目\build-local\`，不在本仓库内，所以不会污染本分支的改动。）
-
 脚本会自动完成：下载 .NET Framework v2.0 / v4.0 参考程序集与一个独立 F# 编译器到
-`build-local\cache\` → 用 .NET SDK 编译 `Win32` 与 `WtProgram` → 生成 `zh-CN` / `ja-JP`
+`tools\cache\` → 用 .NET SDK 编译 `Win32` 与 `WtProgram` → 生成 `zh-CN` / `ja-JP`
 附属程序集 → 输出到 `WtProgram\bin\Release\`。
 
 这条路要绕开三个坑，脚本里都已经处理：
@@ -185,16 +183,17 @@ python build-local\build.py
 ### 生成安装包与发布产物（可选）
 
 ```cmd
-python build-local\build_msi.py       :: 生成 WtSetup\bin\Release\WtSetup.msi
-python build-local\make_release.py    :: 打包到 release\ 目录
+python tools\build.py                 :: 编译主程序
+python tools\build_msi.py             :: 生成 WtSetup\bin\Release\WtSetup.msi
+python tools\make_release.py          :: 打包到 tools\out\ 目录
 ```
 
 `build_msi.py` 用仓库里自带的 WiX Toolset 3.11.1（`packages/` 目录）直接调用 `candle` + `light`，
 不需要安装 WiX 的 VS 扩展。`make_release.py` 会产出：
 
 ```
-release\WindowTabs-2025.06.30-zh-CN-portable.zip
-release\WindowTabs-2025.06.30-zh-CN-installer.msi
+tools\out\WindowTabs-2025.06.30-zh-CN-portable.zip
+tools\out\WindowTabs-2025.06.30-zh-CN-installer.msi
 ```
 
 > 关于绿色版为什么只有 3 个文件：主程序是用 `--standalone --staticlink:` 编译的，
