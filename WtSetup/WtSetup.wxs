@@ -2,7 +2,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
    <Product Id="C59F060C-D728-412B-B837-ED2A11A3BAFE"
             Name="WindowTabs"
-            Language="1033"
+            Language="2052"
             Version="0.0.70"
             Manufacturer="Regis Martinez"
             UpgradeCode="6763D234-BCFA-4172-8190-756DEE9CF2B1">
@@ -21,12 +21,20 @@
                   <File Source="$(var.WtProgram.TargetDir)\WindowTabs.exe"/>
                   <File Source="$(var.WtProgram.TargetDir)\WindowTabs.exe.config"/>
                </Component>
+               <!-- Simplified Chinese satellite assembly. It must sit in a "zh-CN"
+                    subfolder, otherwise the UI falls back to English. -->
+               <Directory Name="zh-CN" Id="_1_zhCN">
+                  <Component Id="_1_zhCN" Guid="066D5014-CF22-44E9-85DD-07C43207EF2A">
+                     <File Source="$(var.WtProgram.TargetDir)\zh-CN\WindowTabs.resources.dll"/>
+                  </Component>
+               </Directory>
             </Directory>
          </Directory>
       </Directory>
 
       <Feature Id="_1" Level="1">
          <ComponentRef Id="_1"/>
+         <ComponentRef Id="_1_zhCN"/>
       </Feature>
 
    </Product>

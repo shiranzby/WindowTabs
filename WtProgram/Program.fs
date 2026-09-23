@@ -357,7 +357,7 @@ type Program() as this =
     member this.run(plugins:List2<IPlugin>) =  
         if System.Diagnostics.Debugger.IsAttached.not then
             if mutex.WaitOne(TimeSpan.FromSeconds(0.5), false).not then
-                MessageBox.Show("Another instance of WindowTabs is running, please close it before running this instance.", "WindowTabs is already running.").ignore
+                MessageBox.Show(Res.get "AlreadyRunningMessage", Res.get "AlreadyRunning").ignore
                 exit(0)
 
         Application.EnableVisualStyles()
@@ -376,6 +376,7 @@ type Program() as this =
             | _ -> ()
 
 Application.SetCompatibleTextRenderingDefault(false)
+Res.applyLanguageOverride()
 let program = Program()
 program.run(List2<obj>([
     InputManagerPlugin(Set2(List2([WindowMessages.WM_MOUSEWHEEL])))

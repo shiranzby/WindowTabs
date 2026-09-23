@@ -79,20 +79,20 @@ type OleDropTarget(ts:TabStrip) as this=
                     if rButtonDown.value then
                         Win32Menu.show window.hwnd ptScreen (List2([
                             CmiRegular({
-                                text = "Copy"
+                                text = Res.get "DragCopy"
                                 image = None
                                 flags = List2()
                                 click = copy
                             })
                             CmiRegular({
-                                text = "Move"
+                                text = Res.get "DragMove"
                                 image = None
                                 flags = List2()
                                 click = move
                             })
                             CmiSeparator
                             CmiRegular({
-                                text = "Cancel"
+                                text = Res.get "Cancel"
                                 image = None
                                 flags = List2()
                                 click = fun() -> ()

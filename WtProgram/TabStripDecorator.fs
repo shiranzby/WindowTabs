@@ -135,7 +135,7 @@ type TabStripDecorator(group:WindowGroup) as this =
         let checked(isChecked) = if isChecked then List2([MenuFlags.MF_CHECKED]) else List2()
         let grayed(isGrayed) = if isGrayed then List2([MenuFlags.MF_GRAYED]) else List2()
         let iconOnlyItem = CmiRegular({
-            text = (if group.isIconOnly then "Expand" else "Shrink") + " tabs"
+            text = if group.isIconOnly then Res.get "Expand tabs" else Res.get "Shrink tabs"
             image = None
             click = fun() -> group.isIconOnly <- group.isIconOnly.not
             flags = List2()
@@ -157,12 +157,12 @@ type TabStripDecorator(group:WindowGroup) as this =
                 click = setAlignment alignment
             })
             CmiPopUp({
-                text = "Align tabs"
+                text = Res.get "Align tabs"
                 image = None
                 items = List2([
-                    ("Left", TabLeft)
-                    ("Center", TabCenter)
-                    ("Right",TabRight)
+                    (Res.get "AlignLeft", TabLeft)
+                    (Res.get "AlignCenter", TabCenter)
+                    (Res.get "AlignRight",TabRight)
                 ]).map(alignmentMenuItem)
             })
 
@@ -170,7 +170,7 @@ type TabStripDecorator(group:WindowGroup) as this =
             let isAutoHideEnabledDef = Services.settings.getValue("autoHide").cast<bool>()
             let isEnabled = group.bb.read("autoHide", isAutoHideEnabledDef)
             CmiRegular({
-                text = "Auto hide maximized"
+                text = Res.get "Auto hide maximized"
                 flags = checked(isEnabled)
                 image = None
                 click = fun() ->
@@ -179,7 +179,7 @@ type TabStripDecorator(group:WindowGroup) as this =
 
         let newWindowItem = 
             CmiRegular({
-                text = "New window"
+                text = Res.get "New window"
                 flags = List2()
                 image = None
                 click = fun() -> Process.Start(processPath) |> ignore
@@ -187,7 +187,7 @@ type TabStripDecorator(group:WindowGroup) as this =
 
         let combineIconsInTaskbar =
             CmiRegular({
-                text = "Combine icons in taskbar"
+                text = Res.get "Combine icons in taskbar"
                 image = None
                 click = fun() -> Services.desktop.restartGroup(group.hwnd, group.isSuperBarEnabled.not)
                 flags = checked(group.isSuperBarEnabled)
@@ -195,7 +195,7 @@ type TabStripDecorator(group:WindowGroup) as this =
         
         let renameTabItem =
             CmiRegular({
-                text = "Rename tab"
+                text = Res.get "Rename tab"
                 image = None
                 flags = List2()
                 click = fun() ->
@@ -203,7 +203,7 @@ type TabStripDecorator(group:WindowGroup) as this =
             })
         let restoreTabNameItem =
             CmiRegular({
-                text = "Restore tab name"
+                text = Res.get "Restore tab name"
                 image = None
                 click = fun() -> group.setTabName(hwnd, None)
                 flags = List2()
@@ -211,7 +211,7 @@ type TabStripDecorator(group:WindowGroup) as this =
 
         let removeTabsItem =
             CmiRegular({
-                text = sprintf "Remove tabs for '%s' windows" exeName
+                text = (Res.get "Remove tabs for exe").Replace("%s", exeName)
                 image = None
                 click = fun() -> Services.filter.setIsTabbingEnabledForProcess processPath false
                 flags = List2()
@@ -220,7 +220,7 @@ type TabStripDecorator(group:WindowGroup) as this =
         let isGrouped = Services.program.getAutoGroupingEnabled processPath
         let groupTabsItem =
             CmiRegular({
-                text = sprintf "Group tabs for '%s' windows" exeName
+                text = (Res.get "Group tabs for exe").Replace("%s", exeName)
                 image = None
                 click = fun() -> Services.program.setAutoGroupingEnabled processPath isGrouped.not
                 flags = checked(isGrouped)
@@ -228,7 +228,7 @@ type TabStripDecorator(group:WindowGroup) as this =
                  
         let closeTabItem = 
             CmiRegular({
-                text = "Close"
+                text = Res.get "Close"
                 image = None
                 click = fun() -> this.onCloseWindow hwnd
                 flags = List2()
@@ -236,7 +236,7 @@ type TabStripDecorator(group:WindowGroup) as this =
 
         let closeOtherTabsItem =
             CmiRegular({
-                text = "Close others"
+                text = Res.get "Close others"
                 image = None
                 click = fun() -> this.onCloseOtherWindows hwnd
                 flags = List2()
@@ -244,7 +244,7 @@ type TabStripDecorator(group:WindowGroup) as this =
 
         let closeAllExeTabsItem =
             CmiRegular({
-                text = sprintf "Close all '%s' windows" exeName
+                text = (Res.get "Close all exe windows").Replace("%s", exeName)
                 image = None
                 click = fun() -> this.onCloseAllExeWindows exeName
                 flags = List2()
@@ -252,7 +252,7 @@ type TabStripDecorator(group:WindowGroup) as this =
 
         let closeAllTabsItem =
             CmiRegular({
-                text = "Close all"
+                text = Res.get "Close all"
                 image = None
                 click = fun() -> this.onCloseAllWindows()
                 flags = List2()
@@ -260,7 +260,7 @@ type TabStripDecorator(group:WindowGroup) as this =
 
         let managerItem =
             CmiRegular({
-                text = "Settings..."
+                text = Res.get "Settings"
                 image = None
                 click = fun() -> Services.managerView.show()
                 flags = List2()

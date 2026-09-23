@@ -73,7 +73,7 @@ type WorkspaceWindow() as this =
                     List2([
                         ("Name", nameEditor.control)
                         ("Title", titleEditor.control)
-                        ("Match Type", matchTypeEditor.cast<IPropEditor>().control)
+                        ("MatchType", matchTypeEditor.cast<IPropEditor>().control)
                     ])
                 member x.height  = 250
                 member x.ok() = 
@@ -277,8 +277,11 @@ type WorkspaceModel() as this =
     member this.selectedChanged = selectedChangedEvt.Publish
 
     member private this.newWorkspaceName() =
-        let nextNumber = this.workspaces.choose(fun(w) -> w.name.Replace("Workspace ", "").tryToInt()).maxBy 0 id + 1
-        sprintf "Workspace %A" nextNumber
+        let nameFormat = Res.get "Workspace Name"
+        let stripPrefix (name:string) =
+            name.Replace("Workspace ", "").Replace(nameFormat.Replace("%d", ""), "")
+        let nextNumber = this.workspaces.choose(fun(w) -> stripPrefix(w.name).tryToInt()).maxBy 0 id + 1
+        nameFormat.Replace("%d", string nextNumber)
 
     member private this.createWorkspace() =
         let zorder = os.windowZorders
@@ -286,7 +289,7 @@ type WorkspaceModel() as this =
             let windowsInZorder = group.windows.sortBy(zorder.find)
             let innerZorder = Map2(windowsInZorder.enumerate.map(fun(innerZorder, hwnd) -> hwnd, innerZorder))
             let wsGroup = WorkspaceGroup(
-                name = sprintf "Group %d" (i + 1),
+                name = (Res.get "Group Name").Replace("%d", string (i + 1)),
                 placement = (
                     let hwnd = windowsInZorder.head
                     os.windowFromHwnd(hwnd).placement)

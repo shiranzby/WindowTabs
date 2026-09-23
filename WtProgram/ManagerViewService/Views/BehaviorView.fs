@@ -28,15 +28,18 @@ type HotKeyView() =
 
     let settingsCheckbox key = checkBox(settingsProperty(key))
 
-    let dropDown (prop:IProperty<string>, items: string list) = 
+    let dropDown (prop:IProperty<string>, items: (string * string) list) = 
+        // items: (stored value, displayed text). The stored value stays canonical
+        // so that persisted settings keep working across languages.
         let combo = new ComboBox()
+        let values = items |> List.map fst
 
         // First add items
-        combo.Items.AddRange(items |> List.toArray |> Array.map box)
-        
+        combo.Items.AddRange(items |> List.map (snd >> box) |> List.toArray)
+
         // Then set initial value if exists, otherwise select first item
         let initialIndex = 
-            match items |> List.tryFindIndex ((=) prop.value) with
+            match values |> List.tryFindIndex ((=) prop.value) with
             | Some index -> index
             | None -> if combo.Items.Count > 0 then 0 else -1
         
@@ -44,8 +47,9 @@ type HotKeyView() =
             combo.SelectedIndex <- initialIndex
             
         combo.SelectedIndexChanged.Add(fun _ ->
-            if combo.SelectedIndex >= 0 then
-                prop.value <- combo.SelectedItem.ToString()
+            let index = combo.SelectedIndex
+            if index >= 0 && index < values.Length then
+                prop.value <- values.[index]
         )
 
         combo :> Control
@@ -58,9 +62,9 @@ type HotKeyView() =
             ("hideInactiveTabs", settingsCheckbox "hideInactiveTabs")
             ("isTabbingEnabledForAllProcessesByDefault", checkBox(prop<IFilterService, bool>(Services.filter, "isTabbingEnabledForAllProcessesByDefault")))
             ("autoHide", settingsCheckbox "autoHide")
-            ("alignment", settingsDropDown "alignment" ["Left"; "Center"; "Right"])
+            ("alignment", settingsDropDown "alignment" [("Left", Res.get "AlignLeft"); ("Center", Res.get "AlignCenter"); ("Right", Res.get "AlignRight")])
         ])
-        "Basics", UIHelper.form fields
+        Res.get "Basics", UIHelper.form fields
 
     let taskForm = 
         let fields = List2([
@@ -68,7 +72,7 @@ type HotKeyView() =
             ("replaceAltTab", settingsCheckbox "replaceAltTab")
             ("groupWindowsInSwitcher", settingsCheckbox "groupWindowsInSwitcher")
         ])
-        "Tasks", UIHelper.form fields
+        Res.get "Tasks", UIHelper.form fields
 
     let switchTabs =
         let hotKeys = List2([
@@ -100,7 +104,7 @@ type HotKeyView() =
             ("enableShiftScroll", settingsCheckbox "enableShiftScroll")
         ]))
 
-        "Switch Tabs", UIHelper.form fields
+        Res.get "Switch Tabs", UIHelper.form fields
 
     let sections = List2([
         basicForm

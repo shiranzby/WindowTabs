@@ -255,4 +255,199 @@
   <data name="Font" xml:space="preserve">
     <value>Segoe UI</value>
   </data>
+  <data name="Align tabs" xml:space="preserve">
+    <value>Align tabs</value>
+  </data>
+  <data name="AlignLeft" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="AlignCenter" xml:space="preserve">
+    <value>Center</value>
+  </data>
+  <data name="AlignRight" xml:space="preserve">
+    <value>Right</value>
+  </data>
+  <data name="Auto hide maximized" xml:space="preserve">
+    <value>Auto hide maximized</value>
+  </data>
+  <data name="Basics" xml:space="preserve">
+    <value>Basics</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Close all" xml:space="preserve">
+    <value>Close all</value>
+  </data>
+  <data name="Close all exe windows" xml:space="preserve">
+    <value>Close all '%s' windows</value>
+  </data>
+  <data name="Close others" xml:space="preserve">
+    <value>Close others</value>
+  </data>
+  <data name="Combine icons in taskbar" xml:space="preserve">
+    <value>Combine icons in taskbar</value>
+  </data>
+  <data name="Contains" xml:space="preserve">
+    <value>Contains</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>Copied</value>
+  </data>
+  <data name="Copied to clipboard" xml:space="preserve">
+    <value>Copied to clipboard</value>
+  </data>
+  <data name="CopyFailed" xml:space="preserve">
+    <value>Copy failed</value>
+  </data>
+  <data name="CopyFailedDetail" xml:space="preserve">
+    <value>Error: copy failed. Details: </value>
+  </data>
+  <data name="CopySettingsFile" xml:space="preserve">
+    <value>Copy settings file to WindowTabs.exe path</value>
+  </data>
+  <data name="CopySettingsHint" xml:space="preserve">
+    <value>Restart WindowTabs.exe to use the settings file in the same path</value>
+  </data>
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>Copy to clipboard</value>
+  </data>
+  <data name="DiagnosticCopyHint" xml:space="preserve">
+    <value>Please paste (CTRL + V) into an email and send it to 'support@windowtabs.com'</value>
+  </data>
+  <data name="DragCopy" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="DragMove" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="EndsWith" xml:space="preserve">
+    <value>Ends with</value>
+  </data>
+  <data name="ExactMatch" xml:space="preserve">
+    <value>Exact match</value>
+  </data>
+  <data name="Expand tabs" xml:space="preserve">
+    <value>Expand tabs</value>
+  </data>
+  <data name="Group tabs for exe" xml:space="preserve">
+    <value>Group tabs for '%s' windows</value>
+  </data>
+  <data name="InvalidColorValue" xml:space="preserve">
+    <value>Invalid color value, must be a six digit hexadecimal number.</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="License Activated" xml:space="preserve">
+    <value>WindowTabs Activated</value>
+  </data>
+  <data name="License ActivateFailed" xml:space="preserve">
+    <value>Activation Failed</value>
+  </data>
+  <data name="License Activate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="License ActivatedMessage" xml:space="preserve">
+    <value>WindowTabs has been successfully activated!</value>
+  </data>
+  <data name="License ActivatedStatus" xml:space="preserve">
+    <value>Activated! Enjoy WindowTabs!</value>
+  </data>
+  <data name="License ActivateFailedMessage" xml:space="preserve">
+    <value>Please ensure your computer has internet access and that your license key is correct. Email support@windowtabs.com if you are having trouble activating WindowTabs.</value>
+  </data>
+  <data name="License Key" xml:space="preserve">
+    <value>License Key:</value>
+  </data>
+  <data name="License LockedTrial" xml:space="preserve">
+    <value>Locked Trial - Three tabs per group limit.</value>
+  </data>
+  <data name="License Offline" xml:space="preserve">
+    <value>Offline</value>
+  </data>
+  <data name="License OfflineTitle" xml:space="preserve">
+    <value>Offline Activation</value>
+  </data>
+  <data name="License OfflineHint" xml:space="preserve">
+    <value>If you are unable to activate over the internet, contact support@windowtabs.com and we will supply an activation code to paste below</value>
+  </data>
+  <data name="New window" xml:space="preserve">
+    <value>New window</value>
+  </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>A new version is available.</value>
+  </data>
+  <data name="NewVersionHint" xml:space="preserve">
+    <value>Please visit windowtabs.com to download the latest version.</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="RegEx" xml:space="preserve">
+    <value>Regular expression</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="Remove tabs for exe" xml:space="preserve">
+    <value>Remove tabs for '%s' windows</value>
+  </data>
+  <data name="Rename tab" xml:space="preserve">
+    <value>Rename tab</value>
+  </data>
+  <data name="Restore tab name" xml:space="preserve">
+    <value>Restore tab name</value>
+  </data>
+  <data name="Scan" xml:space="preserve">
+    <value>Scan</value>
+  </data>
+  <data name="ScanningWindow" xml:space="preserve">
+    <value>Scanning window 0x%x</value>
+  </data>
+  <data name="SettingsWindowTitle" xml:space="preserve">
+    <value>WindowTabs Settings (version %s)</value>
+  </data>
+  <data name="Settings Error" xml:space="preserve">
+    <value>Settings Error</value>
+  </data>
+  <data name="SettingsLoadError" xml:space="preserve">
+    <value>Error loading settings.&#10;&#10;Fix or remove the file {0}.&#10;&#10;Details: {1}</value>
+  </data>
+  <data name="AppearanceSettingError" xml:space="preserve">
+    <value>Appearance Setting Error</value>
+  </data>
+  <data name="AppearanceSettingLoadError" xml:space="preserve">
+    <value>Error loading Appearance setting '{0}'. Using the default value.</value>
+  </data>
+  <data name="AlreadyRunning" xml:space="preserve">
+    <value>WindowTabs is already running.</value>
+  </data>
+  <data name="AlreadyRunningMessage" xml:space="preserve">
+    <value>Another instance of WindowTabs is running, please close it before running this instance.</value>
+  </data>
+  <data name="Shrink tabs" xml:space="preserve">
+    <value>Shrink tabs</value>
+  </data>
+  <data name="StartsWith" xml:space="preserve">
+    <value>Starts with</value>
+  </data>
+  <data name="Switch Tabs" xml:space="preserve">
+    <value>Switch Tabs</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>Tasks</value>
+  </data>
+  <data name="TrayIconTooltip" xml:space="preserve">
+    <value>WindowTabs (version %s)</value>
+  </data>
+  <data name="Workspace Name" xml:space="preserve">
+    <value>Workspace %d</value>
+  </data>
+  <data name="Group Name" xml:space="preserve">
+    <value>Group %d</value>
+  </data>
 </root>

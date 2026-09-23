@@ -46,22 +46,24 @@ type BoolEditor() =
 
 type EnumEditor<'e when 'e :> Enum>() as this =
     let control = ComboBox()
-    let mutable cachedValue = null
-    do this.init()
-
-    member this.init() =
-        for tag in Enum.GetValues(typeof<'e>) do
-            let tag = tag.cast<'e>()
-            control.Items.Add(tag.ToString()).ignore
+    // Enum members are kept as-is; only the displayed text is localized.
+    let values =
+        [| for value in Enum.GetValues(typeof<'e>) do
+               yield value.cast<'e>() |]
+    let mutable selectedIndex = 0
+    do
+        values |> Array.iter (fun item -> control.Items.Add(Res.get (item.ToString())).ignore)
         control.SelectedValueChanged.Add <| fun _ ->
-            cachedValue <- control.SelectedItem
+            if control.SelectedIndex >= 0 then
+                selectedIndex <- control.SelectedIndex
 
     member this.value
-        with get() = 
-            let value = cachedValue
-            Enum.Parse(typeof<'e>, string(value)).cast<'e>()
+        with get() = values.[selectedIndex]
         and set(value) =
-            control.SelectedItem <- value.ToString()
+            let name = value.ToString()
+            match values |> Array.tryFindIndex (fun item -> item.ToString() = name) with
+            | Some(index) -> control.SelectedIndex <- index
+            | None -> ()
 
     interface IPropEditor with
         member x.value
@@ -114,7 +116,7 @@ type ColorEditor() as this =
             with ex -> 
                 e.Cancel <- true
                 tb.SelectAll()
-                MessageBox.Show("Invalid color value, must be a six digit hexadecimal number.").ignore
+                MessageBox.Show(Res.get "InvalidColorValue").ignore
 
         tb.Validated.Add <| fun e -> save()
         tb
@@ -301,12 +303,12 @@ module UIHelper =
         form.Padding <- Padding(12)
         
         let okButton = Button()
-        okButton.Text <- "OK"
+        okButton.Text <- Res.get "OK"
         okButton.Click.Add <| fun _ ->
             form.DialogResult <- DialogResult.OK
 
         let cancelButton = Button()
-        cancelButton.Text <- "Cancel"
+        cancelButton.Text <- Res.get "Cancel"
         
         cancelButton.Click.Add <| fun _ ->
             form.DialogResult <- DialogResult.Cancel

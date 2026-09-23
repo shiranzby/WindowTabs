@@ -9,7 +9,7 @@ open System.Reflection
 
 type DesktopManagerForm() =
     let resources = new ResourceManager("Properties.Resources", Assembly.GetExecutingAssembly());
-    let title = sprintf "WindowTabs Settings (version %s)"  (Services.program.version)
+    let title = (Res.get "SettingsWindowTitle").Replace("%s", Services.program.version)
     let tabs = List2([
         ProgramView() :> ISettingsView
         AppearanceView() :> ISettingsView

@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Simplified Chinese (zh-CN) UI text for WindowTabs.
+    Keys must stay identical to Properties\Resources.resx.
+  -->
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- ===== General / settings tabs ===== -->
+  <data name="Appearance" xml:space="preserve">
+    <value>外观</value>
+  </data>
+  <data name="Behavior" xml:space="preserve">
+    <value>行为</value>
+  </data>
+  <data name="Diagnostics" xml:space="preserve">
+    <value>诊断</value>
+  </data>
+  <data name="Programs" xml:space="preserve">
+    <value>程序</value>
+  </data>
+  <data name="Workspace" xml:space="preserve">
+    <value>工作区</value>
+  </data>
+  <data name="License" xml:space="preserve">
+    <value>许可证</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>设置...</value>
+  </data>
+  <data name="CloseWindowTabs" xml:space="preserve">
+    <value>退出 WindowTabs</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>反馈...</value>
+  </data>
+  <data name="Font" xml:space="preserve">
+    <value>Microsoft YaHei UI</value>
+  </data>
+  <data name="SettingsWindowTitle" xml:space="preserve">
+    <value>WindowTabs 设置 (版本 %s)</value>
+  </data>
+  <data name="TrayIconTooltip" xml:space="preserve">
+    <value>WindowTabs (版本 %s)</value>
+  </data>
+
+  <!-- ===== Common actions ===== -->
+  <data name="OK" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="Close all" xml:space="preserve">
+    <value>全部关闭</value>
+  </data>
+  <data name="Close all exe windows" xml:space="preserve">
+    <value>关闭所有 '%s' 窗口</value>
+  </data>
+  <data name="Close others" xml:space="preserve">
+    <value>关闭其他</value>
+  </data>
+  <data name="New" xml:space="preserve">
+    <value>新建</value>
+  </data>
+  <data name="New window" xml:space="preserve">
+    <value>新建窗口</value>
+  </data>
+  <data name="Refresh" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>移除</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="Restore" xml:space="preserve">
+    <value>还原</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>编辑</value>
+  </data>
+  <data name="Scan" xml:space="preserve">
+    <value>扫描</value>
+  </data>
+  <data name="Ready" xml:space="preserve">
+    <value>就绪</value>
+  </data>
+  <data name="ScanningWindow" xml:space="preserve">
+    <value>正在扫描窗口 0x%x</value>
+  </data>
+
+  <!-- ===== Appearance ===== -->
+  <data name="Height" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="Max Width" xml:space="preserve">
+    <value>最大宽度</value>
+  </data>
+  <data name="Overlap" xml:space="preserve">
+    <value>重叠</value>
+  </data>
+  <data name="Text Color" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="Background Normal" xml:space="preserve">
+    <value>背景(普通)</value>
+  </data>
+  <data name="Background Highlight" xml:space="preserve">
+    <value>背景(高亮)</value>
+  </data>
+  <data name="Background Active" xml:space="preserve">
+    <value>背景(活动)</value>
+  </data>
+  <data name="Background Flash" xml:space="preserve">
+    <value>背景(闪烁)</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>边框</value>
+  </data>
+  <data name="Indent Normal" xml:space="preserve">
+    <value>缩进(普通)</value>
+  </data>
+  <data name="Indent Flipped" xml:space="preserve">
+    <value>缩进(翻转)</value>
+  </data>
+  <data name="DarkMode" xml:space="preserve">
+    <value>深色模式</value>
+  </data>
+  <data name="DarkModeBlue" xml:space="preserve">
+    <value>深色模式(蓝)</value>
+  </data>
+  <data name="InvalidColorValue" xml:space="preserve">
+    <value>颜色值无效，必须是六位十六进制数。</value>
+  </data>
+
+  <!-- ===== Behavior ===== -->
+  <data name="Basics" xml:space="preserve">
+    <value>基础</value>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>任务</value>
+  </data>
+  <data name="Switch Tabs" xml:space="preserve">
+    <value>标签页切换</value>
+  </data>
+  <data name="runAtStartup" xml:space="preserve">
+    <value>开机自动启动 WindowTabs</value>
+  </data>
+  <data name="hideInactiveTabs" xml:space="preserve">
+    <value>淡化非活动窗口的标签页</value>
+  </data>
+  <data name="isTabbingEnabledForAllProcessesByDefault" xml:space="preserve">
+    <value>默认对所有程序启用标签页</value>
+  </data>
+  <data name="autoHide" xml:space="preserve">
+    <value>最大化时自动隐藏标签页</value>
+  </data>
+  <data name="alignment" xml:space="preserve">
+    <value>标签页对齐方式</value>
+  </data>
+  <data name="combineIconsInTaskbar" xml:space="preserve">
+    <value>默认在任务栏合并图标</value>
+  </data>
+  <data name="replaceAltTab" xml:space="preserve">
+    <value>用 WindowTabs 任务切换器替代 ALT+TAB</value>
+  </data>
+  <data name="groupWindowsInSwitcher" xml:space="preserve">
+    <value>在 WindowTabs 任务切换器中合并窗口</value>
+  </data>
+  <data name="enableCtrlNumberHotKey" xml:space="preserve">
+    <value>启用 Ctrl+1 ... Ctrl+9 激活标签页</value>
+  </data>
+  <data name="enableHoverActivate" xml:space="preserve">
+    <value>启用鼠标悬停激活标签页</value>
+  </data>
+  <data name="enableShiftScroll" xml:space="preserve">
+    <value>启用 Shift+滚轮 切换标签页</value>
+  </data>
+  <data name="nextTab" xml:space="preserve">
+    <value>下一个标签页</value>
+  </data>
+  <data name="prevTab" xml:space="preserve">
+    <value>上一个标签页</value>
+  </data>
+  <data name="Align tabs" xml:space="preserve">
+    <value>标签页对齐</value>
+  </data>
+  <data name="AlignLeft" xml:space="preserve">
+    <value>靠左</value>
+  </data>
+  <data name="AlignCenter" xml:space="preserve">
+    <value>居中</value>
+  </data>
+  <data name="AlignRight" xml:space="preserve">
+    <value>靠右</value>
+  </data>
+
+  <!-- ===== Programs ===== -->
+  <data name="Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>标题</value>
+  </data>
+  <data name="enableTabs" xml:space="preserve">
+    <value>标签页</value>
+  </data>
+  <data name="enableAutoGrouping" xml:space="preserve">
+    <value>自动分组</value>
+  </data>
+  <data name="MatchType" xml:space="preserve">
+    <value>匹配方式</value>
+  </data>
+  <data name="ExactMatch" xml:space="preserve">
+    <value>精确匹配</value>
+  </data>
+  <data name="StartsWith" xml:space="preserve">
+    <value>开头为</value>
+  </data>
+  <data name="EndsWith" xml:space="preserve">
+    <value>结尾为</value>
+  </data>
+  <data name="Contains" xml:space="preserve">
+    <value>包含</value>
+  </data>
+  <data name="RegEx" xml:space="preserve">
+    <value>正则表达式</value>
+  </data>
+
+  <!-- ===== Tab context menu ===== -->
+  <data name="Expand tabs" xml:space="preserve">
+    <value>展开标签页</value>
+  </data>
+  <data name="Shrink tabs" xml:space="preserve">
+    <value>收起标签页</value>
+  </data>
+  <data name="Auto hide maximized" xml:space="preserve">
+    <value>最大化时自动隐藏</value>
+  </data>
+  <data name="Combine icons in taskbar" xml:space="preserve">
+    <value>合并任务栏图标</value>
+  </data>
+  <data name="Rename tab" xml:space="preserve">
+    <value>重命名标签页</value>
+  </data>
+  <data name="Restore tab name" xml:space="preserve">
+    <value>恢复标签页名称</value>
+  </data>
+  <data name="Remove tabs for exe" xml:space="preserve">
+    <value>移除 '%s' 窗口的标签页</value>
+  </data>
+  <data name="Group tabs for exe" xml:space="preserve">
+    <value>合并 '%s' 窗口的标签页</value>
+  </data>
+
+  <!-- ===== Diagnostics ===== -->
+  <data name="CopyToClipboard" xml:space="preserve">
+    <value>复制到剪贴板</value>
+  </data>
+  <data name="Copied to clipboard" xml:space="preserve">
+    <value>已复制到剪贴板</value>
+  </data>
+  <data name="DiagnosticCopyHint" xml:space="preserve">
+    <value>请按 CTRL + V 粘贴到邮件中，并发送至 'support@windowtabs.com'</value>
+  </data>
+  <data name="CopySettingsFile" xml:space="preserve">
+    <value>复制设置文件到 WindowTabs.exe 所在目录</value>
+  </data>
+  <data name="CopySettingsHint" xml:space="preserve">
+    <value>请重启 WindowTabs.exe 以使用同目录下的设置文件</value>
+  </data>
+  <data name="Copied" xml:space="preserve">
+    <value>已复制</value>
+  </data>
+  <data name="CopyFailed" xml:space="preserve">
+    <value>复制失败</value>
+  </data>
+  <data name="CopyFailedDetail" xml:space="preserve">
+    <value>错误：复制失败。详情：</value>
+  </data>
+
+  <!-- ===== Drag and drop ===== -->
+  <data name="DragCopy" xml:space="preserve">
+    <value>复制</value>
+  </data>
+  <data name="DragMove" xml:space="preserve">
+    <value>移动</value>
+  </data>
+
+  <!-- ===== Notifications ===== -->
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>发现新版本。</value>
+  </data>
+  <data name="NewVersionHint" xml:space="preserve">
+    <value>请访问 windowtabs.com 下载最新版本。</value>
+  </data>
+
+  <!-- ===== Errors ===== -->
+  <data name="Settings Error" xml:space="preserve">
+    <value>设置错误</value>
+  </data>
+  <data name="SettingsLoadError" xml:space="preserve">
+    <value>加载设置失败。&#10;&#10;请修复或删除文件 {0}。&#10;&#10;详情：{1}</value>
+  </data>
+  <data name="AppearanceSettingError" xml:space="preserve">
+    <value>外观设置错误</value>
+  </data>
+  <data name="AppearanceSettingLoadError" xml:space="preserve">
+    <value>加载外观设置 '{0}' 失败，将使用默认值。</value>
+  </data>
+  <data name="AlreadyRunning" xml:space="preserve">
+    <value>WindowTabs 已在运行</value>
+  </data>
+  <data name="AlreadyRunningMessage" xml:space="preserve">
+    <value>已有一个 WindowTabs 实例在运行，请先关闭它再运行本程序。</value>
+  </data>
+
+  <!-- ===== License ===== -->
+  <data name="License Key" xml:space="preserve">
+    <value>许可证密钥：</value>
+  </data>
+  <data name="License Activate" xml:space="preserve">
+    <value>激活</value>
+  </data>
+  <data name="License Offline" xml:space="preserve">
+    <value>离线激活</value>
+  </data>
+  <data name="License OfflineTitle" xml:space="preserve">
+    <value>离线激活</value>
+  </data>
+  <data name="License OfflineHint" xml:space="preserve">
+    <value>如果您无法通过互联网激活，请联系 support@windowtabs.com，我们会提供一个激活码，请粘贴到下方</value>
+  </data>
+  <data name="License LockedTrial" xml:space="preserve">
+    <value>未激活试用版 - 每组最多三个标签页。</value>
+  </data>
+  <data name="License ActivatedStatus" xml:space="preserve">
+    <value>已激活！尽情使用 WindowTabs 吧！</value>
+  </data>
+  <data name="License Activated" xml:space="preserve">
+    <value>WindowTabs 已激活</value>
+  </data>
+  <data name="License ActivatedMessage" xml:space="preserve">
+    <value>WindowTabs 已成功激活！</value>
+  </data>
+  <data name="License ActivateFailed" xml:space="preserve">
+    <value>激活失败</value>
+  </data>
+  <data name="License ActivateFailedMessage" xml:space="preserve">
+    <value>请确认本机可以访问互联网，并且许可证密钥正确无误。如果您在激活 WindowTabs 时遇到问题，请发送邮件至 support@windowtabs.com。</value>
+  </data>
+
+  <!-- ===== Workspace default names ===== -->
+  <data name="Workspace Name" xml:space="preserve">
+    <value>工作区 %d</value>
+  </data>
+  <data name="Group Name" xml:space="preserve">
+    <value>分组 %d</value>
+  </data>
+</root>

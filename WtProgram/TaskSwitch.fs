@@ -44,7 +44,7 @@ type TaskWindowNode(item) as this=
 type TaskSwitchTreeViewControl(windows:List2<TaskWindowItem>) =
     let resources = new ResourceManager("Properties.Resources", Assembly.GetExecutingAssembly());
     let font = Font(resources.GetString("Font"), 10f)
-    let nameColumn = TreeColumn("Name", 200)
+    let nameColumn = TreeColumn(Res.get "Name", 200)
         
     let nodes = windows.map <| fun window -> TaskWindowNode(window)
     let tree,model = 

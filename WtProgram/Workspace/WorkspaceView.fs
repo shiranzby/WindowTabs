@@ -29,7 +29,10 @@ type WorkspaceNode(model:Dynamic) as this =
     member this.title = 
         if this.showSettings then this.model?title else null
     member this.matchType = 
-        if this.showSettings then box(this.model?matchType.ToString()) else null
+        if this.showSettings then
+            let matchType : WorkspaceWindowTitleMatchType = this.model?matchType
+            box(Res.get (matchType.ToString()))
+        else null
 
     member this.onRemoved() =
         this.Parent.Nodes.Remove(this).ignore

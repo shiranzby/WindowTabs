@@ -249,4 +249,10 @@
   <data name="Font" xml:space="preserve">
     <value>Segoe UI</value>
   </data>
+  <data name="DarkMode" xml:space="preserve">
+    <value>ダークモード</value>
+  </data>
+  <data name="DarkModeBlue" xml:space="preserve">
+    <value>ダークモード(ブルー)</value>
+  </data>
 </root>

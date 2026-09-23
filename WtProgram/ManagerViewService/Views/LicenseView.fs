@@ -15,7 +15,7 @@ type LicenseView() as this =
         label
     let licenseKeyLabel = 
         let label = Label()
-        label.Text <- "License Key:"
+        label.Text <- Res.get "License Key"
         label.Dock <- DockStyle.Fill
         label
     let licenseKeyBox = 
@@ -26,22 +26,22 @@ type LicenseView() as this =
         box
     let activateButton = 
         let btn = Button()
-        btn.Text <- "Activate"
+        btn.Text <- Res.get "License Activate"
         btn.Anchor <- AnchorStyles.Top ||| AnchorStyles.Right
         btn.Click.Add <| fun _ ->
             this.tryUnlock()
         btn
     let offlineActivate =
         let btn = Button()
-        btn.Text <- "Offline"
+        btn.Text <- Res.get "License Offline"
         btn.Anchor <- AnchorStyles.Top ||| AnchorStyles.Right
         btn.Click.Add <| fun _ ->
             let form = Form()
-            form.Text <- "Offline Activation"
+            form.Text <- Res.get "License OfflineTitle"
             let label =
                 let l = Label()
                 l.Dock <- DockStyle.Fill
-                l.Text <- "If you are unable to activate over the internet, contact support@windowtabs.com and we will supply an activation code to paste below"
+                l.Text <- Res.get "License OfflineHint"
                 l
             let keyBox = 
                 let box = TextBox()
@@ -52,7 +52,7 @@ type LicenseView() as this =
                 box
             let okBtn =
                 let btn = Button()
-                btn.Text <- "OK"
+                btn.Text <- Res.get "OK"
                 btn.Anchor <- AnchorStyles.Top ||| AnchorStyles.Right
                 btn.Click.Add <| fun _ ->
                     form.DialogResult <- DialogResult.OK
@@ -101,11 +101,11 @@ type LicenseView() as this =
     member this.updateLockedStatus() =
         let isLocked = Services.lm.isLicensed.not
         if isLocked then
-            statusLabel.Text <- "Locked Trial - Three tab per group limit."
+            statusLabel.Text <- Res.get "License LockedTrial"
             statusLabel.Font <- Font(statusLabel.Font, FontStyle.Bold)
             statusLabel.ForeColor <- Color.Black
         else
-            statusLabel.Text <- "Activated! Enjoy WindowTabs!"
+            statusLabel.Text <- Res.get "License ActivatedStatus"
             statusLabel.Font <- Font(statusLabel.Font, FontStyle.Bold)
             statusLabel.ForeColor <- Color.Green
 
@@ -114,12 +114,12 @@ type LicenseView() as this =
         Services.lm.licenseKey <- licenseKey
         if Services.lm.isLicensed then
             this.updateLockedStatus()
-            MessageBox.Show("WindowTabs has been successfully activated!", "WindowTabs Activated").ignore
+            MessageBox.Show(Res.get "License ActivatedMessage", Res.get "License Activated").ignore
         else
             this.updateLockedStatus()
-            MessageBox.Show("Please ensure your computer has internet access and that your license key is correct. Email support@windowtabs.com if you are having trouble activating WindowTabs.", "Activation Failed").ignore
+            MessageBox.Show(Res.get "License ActivateFailedMessage", Res.get "License ActivateFailed").ignore
 
     interface ISettingsView with
         member x.key = SettingsViewType.LicenseSettings
-        member x.title = "License"
+        member x.title = Res.get "License"
         member x.control = panel.Value.Value :> Control

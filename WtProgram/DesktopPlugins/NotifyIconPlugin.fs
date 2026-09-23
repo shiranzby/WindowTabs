@@ -12,7 +12,7 @@ type NotifyIconPlugin() as this =
     member this.icon = Cell.cacheProp this <| fun() ->
         let notifyIcon = new NotifyIcon()
         notifyIcon.Visible <- true
-        notifyIcon.Text <- "WindowTabs (version " + Services.program.version + ")"
+        notifyIcon.Text <- (Res.get "TrayIconTooltip").Replace("%s", Services.program.version)
         notifyIcon.Icon <- Services.openIcon("Bemo.ico")
         notifyIcon.ContextMenu <- new ContextMenu()
         notifyIcon.DoubleClick.Add <| fun _ -> Services.managerView.show()
@@ -26,8 +26,8 @@ type NotifyIconPlugin() as this =
     member this.onNewVersion() =
         this.icon.ShowBalloonTip(
             1000,
-            "A new version is available.",
-            "Please visit windowtabs.com to download the latest version.",
+            (Res.get "NewVersionAvailable"),
+            (Res.get "NewVersionHint"),
             ToolTipIcon.Info
         )
 

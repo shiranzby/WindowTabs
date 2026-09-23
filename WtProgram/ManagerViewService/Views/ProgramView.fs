@@ -65,7 +65,7 @@ type ProgramView() as this=
         ts
     let statusBar = 
         let sb = StatusBar()
-        sb.Text <- "Ready"
+        sb.Text <- Res.get "Ready"
         sb.Font <- font
         sb
     let tree,model = 
@@ -133,7 +133,7 @@ type ProgramView() as this=
             let os = OS()
             let procs = Services.program.appWindows.fold (Map2()) <| fun procs hwnd ->
                 invoker.asyncInvoke <| fun() ->
-                    statusBar.Text <- sprintf "Scanning window 0x%x" hwnd
+                    statusBar.Text <- (Res.get "ScanningWindow").Replace("%x", hwnd.ToInt64().ToString("x"))
                 let window = os.windowFromHwnd(hwnd)
                 let procPath = window.pid.processPath
                 procs.add procPath (procs.tryFind(procPath).def(List2()).append(window))
@@ -147,7 +147,7 @@ type ProgramView() as this=
             invoker.asyncInvoke <| fun() ->
                 model.Nodes.Clear()
                 procNodes.sortBy(fun n -> n.Text).iter <| fun node -> model.Nodes.Add(node)
-                statusBar.Text <- "Ready"
+                statusBar.Text <- Res.get "Ready"
 
     interface ISettingsView with
         member x.key = SettingsViewType.ProgramSettings

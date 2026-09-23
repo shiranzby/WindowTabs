@@ -26,19 +26,19 @@ type DiagnosticsView() as this =
         ts.GripStyle  <- ToolStripGripStyle.Hidden
         ts.Dock <- DockStyle.Top
         let refreshBtn = 
-            let btn = ToolStripButton("Scan")
+            let btn = ToolStripButton(Res.get "Scan")
             btn.Click.Add <| fun _ -> this.doRefresh()
             btn
         let copyBtn =
-            let btn = ToolStripButton("Copy to clipboard")
+            let btn = ToolStripButton(Res.get "CopyToClipboard")
             btn.Click.Add <| fun _ -> 
                 textBox.SelectAll()
                 textBox.Refresh()
                 textBox.Copy()
-                MessageBox.Show("Please paste (CTRL + V) into an email and send to 'support@windowtabs.com'", "Copied to clipboard").ignore
+                MessageBox.Show(Res.get "DiagnosticCopyHint", Res.get "Copied to clipboard").ignore
             btn
         let copySettingsFileBtn =
-            let btn = ToolStripButton("Copy settings file to WindowTabs.exe path")
+            let btn = ToolStripButton(Res.get "CopySettingsFile")
             btn.Click.Add <| fun _ -> 
                 let fileName = "WindowTabsSettings.txt"
                 let settingsFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WindowTabs")
@@ -46,9 +46,9 @@ type DiagnosticsView() as this =
                 let targetFile = Path.Combine(".", fileName)
                 try
                     File.Copy(settingsFile, targetFile, false)
-                    MessageBox.Show("Restart WindowTabs.exe to use settings file of the same path", "Copied").ignore
+                    MessageBox.Show(Res.get "CopySettingsHint", Res.get "Copied").ignore
                 with ex ->
-                    MessageBox.Show("Error: copy failed. Details: " + ex.Message, "Copy failed").ignore
+                    MessageBox.Show(Res.get "CopyFailedDetail" + ex.Message, Res.get "CopyFailed").ignore
             btn
         ts.Items.Add(refreshBtn).ignore
         ts.Items.Add(copyBtn).ignore
@@ -58,7 +58,7 @@ type DiagnosticsView() as this =
         ts
     let statusBar = 
         let sb = StatusBar()
-        sb.Text <- "Ready"
+        sb.Text <- Res.get "Ready"
         sb.Dock <- DockStyle.Bottom
         sb.Font <- font
         sb

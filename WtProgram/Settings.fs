@@ -54,8 +54,8 @@ type Settings(isStandAlone) as this =
             try
                 this.settingsString.map(JObject.Parse).def(JObject())
             with ex ->
-                let errorMessage = "Error loading settings.\n\nFix or remove the file "  + this.path + ".\n\nDetails: " + ex.Message
-                MessageBox.Show(errorMessage, "Settings Error", MessageBoxButtons.OK, MessageBoxIcon.Warning) |> ignore
+                let errorMessage = (Res.get "SettingsLoadError").Replace("{0}", this.path).Replace("{1}", ex.Message)
+                MessageBox.Show(errorMessage, Res.get "Settings Error", MessageBoxButtons.OK, MessageBoxIcon.Warning) |> ignore
                 failwith "Error parsing settings json"
         and set(settingsJson:JObject) = this.settingsString <- Some(settingsJson.ToString())
 
@@ -151,14 +151,14 @@ type Settings(isStandAlone) as this =
 
                                 Serialize.writeField appearance key value :?> TabAppearanceInfo
                             with ex ->
-                                let errorMessage = "Error loading Appearance setting '" + key + "'. Using default value."
-                                MessageBox.Show(errorMessage, "Appearance Setting Error", MessageBoxButtons.OK, MessageBoxIcon.Warning) |> ignore
+                                let errorMessage = (Res.get "AppearanceSettingLoadError").Replace("{0}", key)
+                                MessageBox.Show(errorMessage, Res.get "AppearanceSettingError", MessageBoxButtons.OK, MessageBoxIcon.Warning) |> ignore
                                 appearance 
                     }
                     cachedSettingsRec <- Some(settings)
                 with ex ->
-                    let errorMessage = "Error loading settings.\n\nFix or remove the file "  + this.path + ".\n\nDetails: " + ex.Message
-                    MessageBox.Show(errorMessage, "Settings Error", MessageBoxButtons.OK, MessageBoxIcon.Warning) |> ignore
+                    let errorMessage = (Res.get "SettingsLoadError").Replace("{0}", this.path).Replace("{1}", ex.Message)
+                    MessageBox.Show(errorMessage, Res.get "Settings Error", MessageBoxButtons.OK, MessageBoxIcon.Warning) |> ignore
                     failwith "Error parsing settings json"
                     
             cachedSettingsRec.Value
